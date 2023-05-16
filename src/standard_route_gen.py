@@ -2,7 +2,7 @@ import random
 import json
 import os.path
 
-number_of_standard_trips = 5 # Total number of trips to be generated
+number_of_standard_trips = 10 # Total number of trips to be generated
 
 variable_trip_size = True #Set to false to make all full trips to be equal length
 variable_item_size = True #Set to false to make each individual trip to carry the same number of individual items

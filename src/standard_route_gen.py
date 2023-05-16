@@ -49,7 +49,7 @@ def Convert_Routes_TO_JSON(all_standard_routes):
         city_to_city = []
         for j in range(len(all_standard_routes[i])-1):
             random.shuffle(items)                  # needs better optimisation
-            food_list = {items[k]:random.randint(1,20) for k in range(min_num_items_per_trip if variable_item_size else 0, max_num_items_per_trip if variable_item_size else num_items_per_trip) }
+            food_list = {items[k]:random.randint(1,20) for k in range(random.randint(min_num_items_per_trip if variable_item_size else num_items_per_trip ,max_num_items_per_trip if variable_item_size else num_items_per_trip)) }
             city_to_city.append({'from' : all_standard_routes[i][j], 'to' :all_standard_routes[i][j+1], 'merchandise' : food_list})
         
         json_list.append({'id': i , 'route': city_to_city})

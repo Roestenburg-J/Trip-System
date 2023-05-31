@@ -17,7 +17,6 @@ else:
 
 
 
-
 if variable_trip_size :
     min_num_cities_per_standard_trip = 2 
     max_num_cities_per_standard_trip = 10
@@ -26,9 +25,11 @@ else:
 
 
 
-def Generate_Random__Standard_Trip(length):
-    random.shuffle(cities)                
-    trip=[cities[i] for i in range(length)]
+def Generate_Random_Standard_Trip(length):
+    permutation = random.sample(range(0, len(cities)), length+1)
+
+    # random.shuffle(cities)                
+    trip=[cities[permutation[i]] for i in range(length+1)]
     return trip
 
 def Generate_All_Standard_Trips(length):
@@ -36,9 +37,9 @@ def Generate_All_Standard_Trips(length):
     for i in range(length):
         if variable_trip_size:
             num = random.randint(min_num_cities_per_standard_trip, max_num_cities_per_standard_trip)
-            all_standard_routes.append(Generate_Random__Standard_Trip(num))
+            all_standard_routes.append(Generate_Random_Standard_Trip(num))
         else:
-            all_standard_routes.append(Generate_Random__Standard_Trip(num_cities_per_standard_trip))
+            all_standard_routes.append(Generate_Random_Standard_Trip(num_cities_per_standard_trip))
             
 
     return all_standard_routes
@@ -48,8 +49,10 @@ def Convert_Routes_TO_JSON(all_standard_routes):
     for i in range(len(all_standard_routes)):
         city_to_city = []
         for j in range(len(all_standard_routes[i])-1):
-            random.shuffle(items)                  # needs better optimisation
-            food_list = {items[k]:random.randint(1,20) for k in range(random.randint(min_num_items_per_trip if variable_item_size else num_items_per_trip ,max_num_items_per_trip if variable_item_size else num_items_per_trip)) }
+            permutation = random.sample(range(0, len(items)), random.randint(min_num_items_per_trip if variable_item_size else num_items_per_trip ,max_num_items_per_trip if variable_item_size else num_items_per_trip))
+
+            # random.shuffle(items)                  # needs better optimisation
+            food_list = {items[k]:random.randint(1,20) for k in permutation }
             city_to_city.append({'from' : all_standard_routes[i][j], 'to' :all_standard_routes[i][j+1], 'merchandise' : food_list})
         
         json_list.append({'id': i , 'route': city_to_city})

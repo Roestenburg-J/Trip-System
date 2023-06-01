@@ -127,14 +127,14 @@ def add_random_items(merch):    # does not add item already in the list
         count+= 1
 
 
-def replace_random_trip(routes , merchs):           # Relpace random trip in the middle of the route
+def replace_random_trip(routes , merchs): #Not updated for graphs          # Relpace random trip in the middle of the route
 
     while True:                                     # Pick random city not in the list already
         i = random.randint(0 , len(cities))
         if not cities[i] in routes: 
             break
 
-    j = random.randint(1 , len(routes)-1)
+    j = random.randint(1 , len(routes)-1)           
 
     routes[j] = cities[i] 
 

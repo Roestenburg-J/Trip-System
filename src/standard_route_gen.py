@@ -31,11 +31,17 @@ def Generate_Random_Standard_Trip(length ):
     trip = []
     trip.append( cities[random.randint(0, len(cities))])
     while len(trip) <= length:
-        while True:
-            city = random.choice(list(G.neighbors(trip[len(trip)-1])))
-            if not city in trip:
-                trip.append(city)
+        neighbours = list(nx.neighbors(G, trip[len(trip)-1]))
+        random.shuffle(neighbours)
+        found = False
+        for neigh in neighbours:
+            if not neigh in trip:
+                trip.append(neigh)
+                found = True
                 break
+
+        if not found:               # If length size not satisfied, then remove last city and try again
+            trip.pop()
 
     return trip
 
@@ -57,8 +63,6 @@ def Convert_Routes_TO_JSON(all_standard_routes):
         city_to_city = []
         for j in range(len(all_standard_routes[i])-1):
             permutation = random.sample(range(0, len(items)), random.randint(min_num_items_per_trip if variable_item_size else num_items_per_trip ,max_num_items_per_trip if variable_item_size else num_items_per_trip))
-
-            # random.shuffle(items)                  # needs better optimisation
             food_list = {items[k]:random.randint(1,20) for k in permutation }
             city_to_city.append({'from' : all_standard_routes[i][j], 'to' :all_standard_routes[i][j+1], 'merchandise' : food_list})
         

@@ -29,7 +29,7 @@ else:
 
 def Generate_Random_Standard_Trip(length ):
     trip = []
-    trip.append( cities[random.randint(0, len(cities))])
+    trip.append( cities[random.randint(0,len(cities)-1)])
     while len(trip) <= length:
         neighbours = list(nx.neighbors(G, trip[len(trip)-1]))
         random.shuffle(neighbours)
@@ -81,15 +81,21 @@ with open(os.path.dirname(__file__) + '/../data/cities.txt') as file:
 with open(os.path.dirname(__file__) +'/../data/foods.txt') as file:
     items = [line.strip() for line in file]
 
-G = nx.erdos_renyi_graph(len(cities), ave_degree/len(cities))
+# G = nx.erdos_renyi_graph(len(cities), ave_degree/len(cities))
+# mapping = {i:cities[i] for i in range(len(cities))}
+# G = nx.relabel_nodes(G, mapping)
+# A = nx.adjacency_matrix(G)
+# A = A.todense()
+
+# mat = np.matrix(A)
+# with open('outfile.txt','wb') as f:
+#     for line in mat:
+#         np.savetxt(f, line, fmt='%.2f')
+
+A = np.loadtxt(os.path.dirname(__file__) + '/../data/matrix.txt', usecols=range(len(cities)))
+# print(A)
+G = nx.from_numpy_array(np.array(A)) 
 mapping = {i:cities[i] for i in range(len(cities))}
 G = nx.relabel_nodes(G, mapping)
-A = nx.adjacency_matrix(G)
-A = A.todense()
-
-mat = np.matrix(A)
-with open('outfile.txt','wb') as f:
-    for line in mat:
-        np.savetxt(f, line, fmt='%.2f')
 
 print(Convert_Routes_TO_JSON(Generate_All_Standard_Trips(number_of_standard_trips)))

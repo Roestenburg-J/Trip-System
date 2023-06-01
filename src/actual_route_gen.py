@@ -130,11 +130,11 @@ def add_random_items(merch):    # does not add item already in the list
 def replace_random_trip(routes , merchs): #Not updated for graphs          # Relpace random trip in the middle of the route
 
     while True:                                     # Pick random city not in the list already
-        i = random.randint(0 , len(cities))
+        i = random.randint(0 , len(cities)-1)
         if not cities[i] in routes: 
             break
 
-    j = random.randint(1 , len(routes)-1)           
+    j = random.randint(1 , len(routes)-2)           
 
     routes[j] = cities[i] 
 
@@ -233,37 +233,40 @@ Split_JSON_Obj(json_object)
 new_id = 0
 json_list = []
 
-# for i in range(len(Routes)):    # For each standard route, add a city to the start and end of the trips, additionally, edit and add items to each city-to-city trip
-    
-#     routes = Routes[i].copy()
-#     merchs = Merchs[i].copy()
-
-#     # print(routes)
-#     # print(merchs)
-
-#     for merch in merchs:
-#         edit_random_items(merch)
-#         add_random_items(merch)
-
-#     # for route in routes:
-#     add_random_route_to_end(routes , merchs)
-#     add_random_route_to_front(routes , merchs)
-
-#     convert_to_JSON(json_list,new_id,routes, merchs)
-#     new_id += 1
-
-A = np.loadtxt(os.path.dirname(__file__) + '/../data/outfile.txt', usecols=range(len(cities)))
+A = np.loadtxt(os.path.dirname(__file__) + '/../data/matrix.txt', usecols=range(len(cities)))
 # print(A)
 G = nx.from_numpy_array(np.array(A)) 
 mapping = {i:cities[i] for i in range(len(cities))}
 G = nx.relabel_nodes(G, mapping)
-nx.draw(G, with_labels = True )
 
-i = 5
-print(Routes[i])
-print(Merchs[i])
+for i in range(len(Routes)):    # For each standard route, add a city to the start and end of the trips, additionally, edit and add items to each city-to-city trip
+    
+    routes = Routes[i].copy()
+    merchs = Merchs[i].copy()
 
-add_random_trip(Routes[i], Merchs[i])
-print(Routes[i])
-print(Merchs[i])
+    # print(routes)
+    # print(merchs)
+
+    for merch in merchs:
+        edit_random_items(merch)
+        add_random_items(merch)
+
+    # for route in routes:
+    add_random_route_to_end(routes , merchs)
+    add_random_route_to_front(routes , merchs)
+
+    convert_to_JSON(json_list,new_id,routes, merchs)
+    new_id += 1
+
+print(json.dumps(json_list, indent=3,sort_keys=False))
+
+# nx.draw(G, with_labels = True )
+
+# i = 5
+# print(Routes[i])
+# print(Merchs[i])
+
+# add_random_trip(Routes[i], Merchs[i])
+# print(Routes[i])
+# print(Merchs[i])
 

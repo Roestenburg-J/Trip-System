@@ -1,9 +1,7 @@
 import random
 import json
 import os.path
-import networkx as nx
 import numpy as np
-import matplotlib.pyplot as plt
 
 variable_item_size = True #Set to false to make each individual trip to carry the same number of individual items
 
@@ -13,14 +11,8 @@ if variable_item_size :
 else:
     num_items_per_trip = 10 #set if variable_item_size is set to False
 
-edit_p = 0.3  # percent of items to edit. If set to 1, then all item amounts will be edited
-del_p = 0.3  # percent of items to be deleted. If set to 1, then all items will be deleted
-add_p = 0.3  # percent of items to be added. If set to 1, then number of items will be doubled
 
 merch_edit_amount = 10 # range of how much we can edit the quantity of each item
-
-
-trip_del_p = 0.3  # fraction of trips to remove from route
 
 
 def Split_JSON_Obj(json_object):
@@ -37,32 +29,23 @@ def Split_JSON_Obj(json_object):
 
 
 def add_random_route_to_end(route , merch): 
-    
-    while True:                                                         # does not add city already in the route
-        city = random.choice(list(G.neighbors(route[len(route)-1])))
+    permutation = random.sample(range(0, len(neighbour_list[route[len(route)-1]])) , len(neighbour_list[route[len(route)-1]]))
+    for i in permutation:                                                         # does not add city already in the route
+        city = neighbour_list[route[0]][i]
         if not city in route:
-            route.append(city)
+            route.insert(0,city)
             break
 
     permutation = random.sample(range(0, len(items)), random.randint(min_num_items_per_trip if variable_item_size else num_items_per_trip ,max_num_items_per_trip if variable_item_size else num_items_per_trip))
     merch.append({items[k]:random.randint(1,20) for k in permutation})
     
 
-    # permutation = random.sample(range(0, len(items)), random.randint(min_num_items_per_trip if variable_item_size else num_items_per_trip ,max_num_items_per_trip if variable_item_size else num_items_per_trip))
-    # while True:
-    #     city = cities[random.randint(0,len(cities)-1)]
-    #     if city in route:
-    #         continue
-    #     else:
-    #         route.append(city)
-    #         merch.append({items[k]:random.randint(1,20) for k in permutation})
-    #         break
 
 
 def add_random_route_to_front(route , merch):
-
-    while True:                                                         # does not add city already in the route
-        city = random.choice(list(G.neighbors(route[0])))
+    permutation = random.sample(range(0, len(neighbour_list[route[0]])) , len(neighbour_list[route[0]]))
+    for i in permutation:                                                         # does not add city already in the route
+        city = neighbour_list[route[0]][i]
         if not city in route:
             route.insert(0,city)
             break
@@ -70,25 +53,19 @@ def add_random_route_to_front(route , merch):
     permutation = random.sample(range(0, len(items)), random.randint(min_num_items_per_trip if variable_item_size else num_items_per_trip ,max_num_items_per_trip if variable_item_size else num_items_per_trip))
     merch.insert(0,{items[k]:random.randint(1,20) for k in permutation})
 
-    # while True:
-    #     city = cities[random.randint(0,len(cities)-1)]
-    #     if city in route:
-    #         continue
-    #     else:
-    #         route.insert(0,city)
-    #         merch.insert(0,{items[k]:random.randint(1,20) for k in permutation})
-    #         break
 
-# def add_random_route_to_mid(index): #??
 
-def edit_random_items(merch):
+def edit_random_items(merch,edit_num):
     names = []
     values = []
     for key, value in merch.items():
         names.append(key)
         values.append(value)
 
-    for i in random.sample(range(1, len(merch)), round(len(merch)*edit_p)):
+    if edit_num > len(merch):
+        edit_num = len(merch)
+
+    for i in random.sample(range(0, len(merch)), edit_num):
         while True:                                                             # ensures that we do not have negative or zero quantity
             gen = random.randint(-merch_edit_amount, merch_edit_amount)
             if gen + values[i] > 0:
@@ -96,67 +73,49 @@ def edit_random_items(merch):
                 break
 
     
-def del_random_items(merch):
-    names = []
-    values = []
-    for key, value in merch.items():
-        names.append(key)
-        values.append(value)
+def del_random_items(merch, del_num):
+    names = list(merch.keys())
 
-    for i in random.sample(range(0, len(merch)-1), round(len(merch)*del_p)):
+    if del_num >= len(merch):
+        return
+    for i in random.sample(range(0, len(merch)-1), del_num):
         del merch[names[i]]
 
 
 
-def add_random_items(merch):    # does not add item already in the list
-    names = []
-    values = []
+def add_random_items(merch, add_num):    # does not add item already in the list
+    names = list(merch.keys())
     i=0 
     count= 0
-    permutation = random.sample(range(0, len(items)), len(merch) + round(len(merch)*add_p))
-    for key, value in merch.items():
-        names.append(key)
-        values.append(value)
+    permutation = random.sample(range(0, len(items)), len(items))
 
-
-    while i < round(len(merch)*add_p):
+    # Add item not already in the list 
+    while i < add_num: 
         if not items[permutation[count]] in names:
             merch[items[permutation[count]]]=random.randint(1,20)
             i+=1 
 
         count+= 1
+        if count == len(items):
+            return
 
-
-def replace_random_trip(routes , merchs): #Not updated for graphs          # Relpace random trip in the middle of the route
-
-    while True:                                     # Pick random city not in the list already
-        i = random.randint(0 , len(cities)-1)
-        if not cities[i] in routes: 
-            break
-
-    j = random.randint(1 , len(routes)-2)           
-
-    routes[j] = cities[i] 
-
-    
-    for k in range(-1,1):
-        permutation = random.sample(range(0, len(items)), random.randint(min_num_items_per_trip if variable_item_size else num_items_per_trip ,max_num_items_per_trip if variable_item_size else num_items_per_trip))
-        merchs[j+k].clear() 
-        for p in permutation:
-            merchs[j+k][items[p]] = random.randint(1,20)
-
-#                 merchs[j+k].clear() 
-# IndexError: list index out of range
 
 
 def add_random_trip(routes , merchs):                                       # Add random trip in the middle of the route
     
-    permutation = random.sample(range(1, len(routes)-1), len(routes)-2)     # Random permutation to try add a trip
+    permutation = random.sample(range(0, len(routes)-1), len(routes)-1)     # Random permutation to try add a trip
     found = False
     for k in permutation:
+        if k == 0:
+            add_random_route_to_front(routes, merchs)
+            return
+        elif k == len(routes)-1:
+            add_random_route_to_end(routes, merchs)
+            return
+
         prev_city = routes[k-1]
         next_city = routes[k]
-        common_neighbors = list(nx.common_neighbors(G, prev_city,next_city))
+        common_neighbors = find_common_neigh(prev_city,next_city, neighbour_list)
 
         if len(common_neighbors) != 0:
             picked = random.choice(common_neighbors)
@@ -179,27 +138,52 @@ def add_random_trip(routes , merchs):                                       # Ad
         merchs.append(lists)
 
 
+def remove_front(routes , merchs):
+    del routes[0]
+    del merchs[0]
+
+def remove_end(routes , merchs):
+    del routes[len(routes)-1]
+    del merchs[len(merchs)-1]
+
+def remove_trip_at(ind , routes , merchs):
+    prev_city = routes[ind-1]
+    next_city = routes[ind]
+    common_neighbors = find_common_neigh(prev_city,next_city, neighbour_list)
+
+    if len(common_neighbors) == 0:      # No common neighbours
+        return False
     
-        
+    picked = random.choice(common_neighbors)
     
-    # while True:                                     # Pick random city not in the list already
-    #     i = random.randint(0 , len(cities))
-    #     if not cities[i] in routes: 
-    #         break
+    routes.insert(ind , picked)
+    merch_list = list(merchs)
+    for i in range(-1,1):
+        permutation = random.sample(range(0, len(items)), random.randint(min_num_items_per_trip if variable_item_size else num_items_per_trip ,max_num_items_per_trip if variable_item_size else num_items_per_trip))
+        food_list = {items[l]:random.randint(1,20) for l in permutation }
+        merch_list.insert(i+ind , food_list)
 
-    # j = random.randint(1 , len(routes)-1)           # Random position to enter the new city
-    # print(routes)
+    merchs.clear()
+    for lists in merch_list:
+        merchs.append(lists)
+    
+    return True
 
-    # routes.insert(j , cities[i])
-    # print(routes)
-    # merch_list = list(merchs)
-    # for k in range(-1,1):
-    #     permutation = random.sample(range(0, len(items)), random.randint(min_num_items_per_trip if variable_item_size else num_items_per_trip ,max_num_items_per_trip if variable_item_size else num_items_per_trip))
-    #     food_list = {items[l]:random.randint(1,20) for l in permutation }
-    #     merch_list.insert(j+k , food_list)
+def remove_random_trip(routes , merchs): 
+    if len(routes) < 3:
+        return 
+    
+    permutation = random.sample(range(0, len(routes)-1), len(routes)-1)     # Random permutation to try add a trip
 
-    # merchs = merch_list
-
+    for k in permutation:
+        if k == 0:
+            remove_front(routes , merchs)
+        elif k == len(routes)-1:
+            remove_end(routes , merchs)
+        else:
+            if not remove_trip_at(k,routes , merchs ):
+                continue
+        return
 
 
 def convert_to_JSON(JSON_list, id , routes , merchs):
@@ -210,6 +194,56 @@ def convert_to_JSON(JSON_list, id , routes , merchs):
     JSON_list.append({'id': id , 'route': city_to_city})
 
 
+def create_neighbour_list(neighbour_list, A):
+    for i in range(len(A)):
+        temp = []
+        for j in range(len(A)):
+            if A[i][j] == 1:
+                temp.append(j)
+        
+        neighbour_list.append(temp)
+
+
+def find_common_neigh(a,b,neighbour_list):
+    lists = []
+    if len(neighbour_list[a]) > len(neighbour_list[b]):
+        smaller_list = neighbour_list[b]
+        bigger_list = neighbour_list[a]
+    else:
+        smaller_list = neighbour_list[a]
+        bigger_list = neighbour_list[b]
+
+    for i in smaller_list:
+        ind = binary_search(bigger_list , i)
+        if ind != -1:
+            lists.append(i)
+    
+    return lists
+        
+
+def binary_search(arr, x):
+    low = 0
+    high = len(arr) - 1
+    mid = 0
+ 
+    while low <= high:
+        mid = (high + low) // 2
+ 
+        if arr[mid] < x:
+            low = mid + 1
+        elif arr[mid] > x:
+            high = mid - 1
+        else:
+            return mid
+    # If we reach here, then the element was not present
+    return -1
+    
+
+def conv_city_names(Routes):
+    for i in range(len(Routes)):
+        for j in range(len(Routes[i])):
+            Routes[i][j] = cities.index(Routes[i][j])
+        
 
 
 IDs = []
@@ -226,47 +260,92 @@ with open(os.path.dirname(__file__) + '/../data/data.json', 'r') as openfile:
     json_object = json.load(openfile)
 
 
-
-
 Split_JSON_Obj(json_object)
-
-new_id = 0
-json_list = []
-
 A = np.loadtxt(os.path.dirname(__file__) + '/../data/matrix.txt', usecols=range(len(cities)))
-# print(A)
-G = nx.from_numpy_array(np.array(A)) 
-mapping = {i:cities[i] for i in range(len(cities))}
-G = nx.relabel_nodes(G, mapping)
 
-for i in range(len(Routes)):    # For each standard route, add a city to the start and end of the trips, additionally, edit and add items to each city-to-city trip
+neighbour_list = []
+create_neighbour_list(neighbour_list, A)
+conv_city_names(Routes)
+
+# G = nx.from_numpy_array(np.array(A)) 
+# mapping = {i:cities[i] for i in range(len(cities))}
+# G = nx.relabel_nodes(G, mapping)
+
+B_to_GB = 1024*1024*1024  # size of 1GB
+target_size = B_to_GB * 50 # Target size in GB , 
+output_file = os.path.dirname(__file__) + '/../data/output.json'  # Path to the output file
+
+# if not os.path.exists(output_file):
+#     f = open(output_file, "w")
+#     f.write("[]")
+#     f.close()
+# print(find_common_neigh(5 , 6 , neighbour_list))
+
+with open(output_file,  mode="w+") as file:
+    file.write("[")
+    # file.seek(0,2)
+    # position = file.tell() -1
+    # file.seek(position)
+
+    new_id = 0
+    mean = 3
+    sd = 3
+
+    # Generate distribution of numbers
+    rand_list = np.random.normal(loc=mean, scale = sd, size=100)
+    rand_dist_list = []
+    # Convert numbers to positive int
+    for i in range(len(rand_list)):
+        rand_dist_list.append(int(abs(round(rand_list[i]))))
+
+    while os.path.getsize(output_file) < target_size:
+        # json_list = []
+        picked = random.randint(0,len(Routes)-1)  # Pick random route
+        routes = Routes[picked].copy()
+        merchs = Merchs[picked].copy()
+
+        num_remove_trip = rand_dist_list[random.randint(0,len(rand_dist_list)-1)]
+        num_add_trip = rand_dist_list[random.randint(0,len(rand_dist_list)-1)]
     
-    routes = Routes[i].copy()
-    merchs = Merchs[i].copy()
+        for i in range(num_add_trip):
+            add_random_trip(routes , merchs)
 
-    # print(routes)
-    # print(merchs)
+        for i in range(num_remove_trip):
+            remove_random_trip(routes , merchs)
 
-    for merch in merchs:
-        edit_random_items(merch)
-        add_random_items(merch)
 
-    # for route in routes:
-    add_random_route_to_end(routes , merchs)
-    add_random_route_to_front(routes , merchs)
+        for j in range(len(merchs)):
+            num_remove_merch= rand_dist_list[random.randint(0,len(rand_dist_list)-1)]
+            num_add_merch = rand_dist_list[random.randint(0,len(rand_dist_list)-1)]
+            num_edit_merch = rand_dist_list[random.randint(0,len(rand_dist_list)-1)]
 
-    convert_to_JSON(json_list,new_id,routes, merchs)
-    new_id += 1
+            del_random_items(merchs[j], num_remove_merch)
+            add_random_items(merchs[j], num_add_merch)
+            edit_random_items(merchs[j], num_edit_merch)
+        
+        city_to_city = []
+        for j in range(len(routes)-1):
+            city_to_city.append({'from' : cities[routes[j]], 'to' :cities[routes[j+1]], 'merchandise' : merchs[j]})
 
-print(json.dumps(json_list, indent=3,sort_keys=False))
+        # json_list.append({'id': new_id , 'route': city_to_city})
 
-# nx.draw(G, with_labels = True )
+        file.write( "{},".format(json.dumps({'id': new_id , 'route': city_to_city}, indent=3,sort_keys=False)) )
+        new_id += 1
 
-# i = 5
-# print(Routes[i])
-# print(Merchs[i])
 
-# add_random_trip(Routes[i], Merchs[i])
-# print(Routes[i])
-# print(Merchs[i])
+        # file.seek(0,2)
+        # position = file.tell() -1
+        # file.seek(position)
+        # file.write( "{},".format(json.dumps(json_list, indent=3,sort_keys=False)) )
 
+
+        
+
+with open (output_file, mode="r+") as file:
+    file.seek(os.stat(output_file).st_size -1)
+    file.truncate()
+    file.write(']')
+
+
+
+print("Output file reached the target size!")

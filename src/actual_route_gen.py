@@ -277,7 +277,7 @@ conv_city_names(Routes)
 
 B_to_GB = 1024*1024*1024  # size of 1GB
 # target_size = B_to_GB * 50 # Target size in GB , 
-target_size = 1024 # Target size in GB , 
+target_size = 1024 * 1024 # Target size in GB , 
 
 output_file = os.path.dirname(__file__) + '/../data/output.json'  # Path to the output file
 

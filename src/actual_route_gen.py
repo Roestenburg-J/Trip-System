@@ -330,7 +330,7 @@ with open(output_file, mode="w+") as file:
         for j in range(len(routes) - 1):
             merchandise = []
             for item, quantity in merchs[j].items():
-                merchandise.append({"item": item, "quantity": quantity})
+                merchandise.append({"food_type": item, "qty": quantity})
             city_to_city.append({"from": cities[routes[j]], "to": cities[routes[j + 1]], "merchandise": merchandise})
 
         json_output = json.dumps({"id": new_id, "route": city_to_city}, indent=3, sort_keys=False)

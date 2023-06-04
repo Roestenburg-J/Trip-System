@@ -185,13 +185,17 @@ def remove_random_trip(routes , merchs):
                 continue
         return
 
-
-def convert_to_JSON(JSON_list, id , routes , merchs):
+def convert_to_JSON(JSON_list, id, routes, merchs):
     city_to_city = []
-    for j in range(len(routes)-1):
-        city_to_city.append({'from' : routes[j], 'to' :routes[j+1], 'merchandise' : merchs[j]})
+    for j in range(len(routes) - 1):
+        merchandise = []
+        for item, quantity in merchs[j].items():
+            merchandise.append({"item": item, "quantity": quantity})
+        city_to_city.append({"from": routes[j], "to": routes[j + 1], "merchandise": merchandise})
 
-    JSON_list.append({'id': id , 'route': city_to_city})
+    JSON_list.append({"id": id, "route": city_to_city})
+
+
 
 
 def create_neighbour_list(neighbour_list, A):
@@ -272,7 +276,9 @@ conv_city_names(Routes)
 # G = nx.relabel_nodes(G, mapping)
 
 B_to_GB = 1024*1024*1024  # size of 1GB
-target_size = B_to_GB * 50 # Target size in GB , 
+# target_size = B_to_GB * 50 # Target size in GB , 
+target_size = 1024 # Target size in GB , 
+
 output_file = os.path.dirname(__file__) + '/../data/output.json'  # Path to the output file
 
 # if not os.path.exists(output_file):
@@ -281,71 +287,59 @@ output_file = os.path.dirname(__file__) + '/../data/output.json'  # Path to the 
 #     f.close()
 # print(find_common_neigh(5 , 6 , neighbour_list))
 
-with open(output_file,  mode="w+") as file:
+# ...
+
+with open(output_file, mode="w+") as file:
     file.write("[")
-    # file.seek(0,2)
-    # position = file.tell() -1
-    # file.seek(position)
 
     new_id = 0
     mean = 3
     sd = 3
 
     # Generate distribution of numbers
-    rand_list = np.random.normal(loc=mean, scale = sd, size=100)
+    rand_list = np.random.normal(loc=mean, scale=sd, size=100)
     rand_dist_list = []
     # Convert numbers to positive int
     for i in range(len(rand_list)):
         rand_dist_list.append(int(abs(round(rand_list[i]))))
 
     while os.path.getsize(output_file) < target_size:
-        # json_list = []
-        picked = random.randint(0,len(Routes)-1)  # Pick random route
+        picked = random.randint(0, len(Routes) - 1)  # Pick random route
         routes = Routes[picked].copy()
         merchs = Merchs[picked].copy()
 
-        num_remove_trip = rand_dist_list[random.randint(0,len(rand_dist_list)-1)]
-        num_add_trip = rand_dist_list[random.randint(0,len(rand_dist_list)-1)]
-    
+        num_remove_trip = rand_dist_list[random.randint(0, len(rand_dist_list) - 1)]
+        num_add_trip = rand_dist_list[random.randint(0, len(rand_dist_list) - 1)]
+
         for i in range(num_add_trip):
-            add_random_trip(routes , merchs)
+            add_random_trip(routes, merchs)
 
         for i in range(num_remove_trip):
-            remove_random_trip(routes , merchs)
-
+            remove_random_trip(routes, merchs)
 
         for j in range(len(merchs)):
-            num_remove_merch= rand_dist_list[random.randint(0,len(rand_dist_list)-1)]
-            num_add_merch = rand_dist_list[random.randint(0,len(rand_dist_list)-1)]
-            num_edit_merch = rand_dist_list[random.randint(0,len(rand_dist_list)-1)]
+            num_remove_merch = rand_dist_list[random.randint(0, len(rand_dist_list) - 1)]
+            num_add_merch = rand_dist_list[random.randint(0, len(rand_dist_list) - 1)]
+            num_edit_merch = rand_dist_list[random.randint(0, len(rand_dist_list) - 1)]
 
             del_random_items(merchs[j], num_remove_merch)
             add_random_items(merchs[j], num_add_merch)
             edit_random_items(merchs[j], num_edit_merch)
-        
+
         city_to_city = []
-        for j in range(len(routes)-1):
-            city_to_city.append({'from' : cities[routes[j]], 'to' :cities[routes[j+1]], 'merchandise' : merchs[j]})
+        for j in range(len(routes) - 1):
+            merchandise = []
+            for item, quantity in merchs[j].items():
+                merchandise.append({"item": item, "quantity": quantity})
+            city_to_city.append({"from": cities[routes[j]], "to": cities[routes[j + 1]], "merchandise": merchandise})
 
-        # json_list.append({'id': new_id , 'route': city_to_city})
+        json_output = json.dumps({"id": new_id, "route": city_to_city}, indent=3, sort_keys=False)
+        file.write(json_output)
+        if os.path.getsize(output_file) < target_size:
+            file.write(",\n")
 
-        file.write( "{},".format(json.dumps({'id': new_id , 'route': city_to_city}, indent=3,sort_keys=False)) )
         new_id += 1
 
-
-        # file.seek(0,2)
-        # position = file.tell() -1
-        # file.seek(position)
-        # file.write( "{},".format(json.dumps(json_list, indent=3,sort_keys=False)) )
-
-
-        
-
-with open (output_file, mode="r+") as file:
-    file.seek(os.stat(output_file).st_size -1)
-    file.truncate()
-    file.write(']')
-
-
+    file.write("]")
 
 print("Output file reached the target size!")

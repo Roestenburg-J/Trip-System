@@ -98,4 +98,11 @@ G = nx.from_numpy_array(np.array(A))
 mapping = {i:cities[i] for i in range(len(cities))}
 G = nx.relabel_nodes(G, mapping)
 
-print(Convert_Routes_TO_JSON(Generate_All_Standard_Trips(number_of_standard_trips)))
+json_data = Convert_Routes_TO_JSON(Generate_All_Standard_Trips(number_of_standard_trips))
+
+# Write JSON data to file
+output_file = 'data/data.json'
+with open(output_file, 'w') as file:
+    file.write(json_data)
+
+print(f"JSON data saved to {output_file}")

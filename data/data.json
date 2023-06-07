@@ -1,611 +1,1217 @@
 [
-    {
-       "id": 0,
-       "route": [
-          {
-             "from": "Vreeland",
-             "to": "Brielle",
-             "merchandise": {
-                "kiwi": 15,
-                "Spinach": 5,
-                "Pizza": 11,
-                "Zucchini": 11,
-                "kale": 8,
-                "ice cream": 10,
-                "chips": 7,
-                "Apple juice": 17,
-                "eggs": 20
-             }
-          }
-       ]
-    },
-    {
-       "id": 1,
-       "route": [
-          {
-             "from": "Brielle",
-             "to": "Hengelo",
-             "merchandise": {
-                "English muffins": 15,
-                "cupcakes": 15,
-                "eggs": 11,
-                "cookies": 9,
-                "grits": 2,
-                "hot dogs": 2,
-                "Waffles": 14,
-                "carne asada": 17,
-                "jalapeno": 7,
-                "Ostrich": 5
-             }
-          }
-       ]
-    },
-    {
-       "id": 2,
-       "route": [
-          {
-             "from": "Roermond",
-             "to": "Hagestein",
-             "merchandise": {
-                "avacado": 17,
-                "donuts": 3,
-                "celery": 18,
-                "carrots": 4,
-                "Meatballs": 5,
-                "artichoke": 2
-             }
-          },
-          {
-             "from": "Hagestein",
-             "to": "Ommen",
-             "merchandise": {
-                "babaganoosh": 18,
-                "Ziti": 17,
-                "curry": 4,
-                "gumbo": 9,
-                "Pancakes": 13,
-                "Walnuts": 13,
-                "bluefish": 15,
-                "halibut": 14
-             }
-          },
-          {
-             "from": "Ommen",
-             "to": "Rotterdam",
-             "merchandise": {
-                "Spaghetti": 6,
-                "Irish stew": 17
-             }
-          },
-          {
-             "from": "Rotterdam",
-             "to": "Utrecht",
-             "merchandise": {
-                "gnocchi": 16,
-                "eggs": 6,
-                "jam": 5,
-                "Walnuts": 18,
-                "BBQ": 20,
-                "Zucchini": 7,
-                "Toast": 16,
-                "ketchup": 16,
-                "kabobs": 13
-             }
-          },
-          {
-             "from": "Utrecht",
-             "to": "Winterswijk",
-             "merchandise": {
-                "avacado": 9,
-                "catfish": 20,
-                "dips": 8,
-                "bluefish": 18,
-                "almond": 11,
-                "French toast": 15,
-                "Spinach": 1,
-                "arugala": 3,
-                "grits": 11,
-                "Guancamole": 13
-             }
-          }
-       ]
-    },
-    {
-       "id": 3,
-       "route": [
-          {
-             "from": "Woerden",
-             "to": "Weesp",
-             "merchandise": {
-                "duck": 2,
-                "hamburger": 15,
-                "bisque": 13,
-                "jam": 6,
-                "Cabbage": 12,
-                "Quiche": 20,
-                "Bruscetta": 10,
-                "Milk": 19
-             }
-          },
-          {
-             "from": "Weesp",
-             "to": "Deventer",
-             "merchandise": {
-                "Bruscetta": 1,
-                "eel sushi": 12,
-                "Moose": 5,
-                "ham": 15,
-                "Meatballs": 15,
-                "lobster": 20
-             }
-          },
-          {
-             "from": "Deventer",
-             "to": "Schagen",
-             "merchandise": {
-                "bagels": 4,
-                "Wine": 8
-             }
-          },
-          {
-             "from": "Schagen",
-             "to": "Leeuwarden",
-             "merchandise": {
-                "eggrolls": 3,
-                "buritto": 5,
-                "Avocado roll": 19,
-                "grapes": 10,
-                "crab": 1
-             }
-          }
-       ]
-    },
-    {
-       "id": 4,
-       "route": [
-          {
-             "from": "Leiden",
-             "to": "Hellevoetsluis",
-             "merchandise": {
-                "Guancamole": 5,
-                "fondu": 5,
-                "bisque": 2
-             }
-          },
-          {
-             "from": "Hellevoetsluis",
-             "to": "Rotterdam",
-             "merchandise": {
-                "Milkshake": 11,
-                "jerky": 18,
-                "kingfish": 8
-             }
-          },
-          {
-             "from": "Rotterdam",
-             "to": "Bredevoort",
-             "merchandise": {
-                "chicken": 3,
-                "babaganoosh": 18,
-                "bison": 19,
-                "carrots": 3,
-                "eel sushi": 11,
-                "dumplings": 13,
-                "Zucchini": 19,
-                "broccoli": 18
-             }
-          },
-          {
-             "from": "Bredevoort",
-             "to": "Doesburg",
-             "merchandise": {
-                "cereal": 17,
-                "jalapeno": 18
-             }
-          },
-          {
-             "from": "Doesburg",
-             "to": "Vlissingen",
-             "merchandise": {
-                "Spaghetti": 4,
-                "bison": 10,
-                "chowder": 14,
-                "BBQ": 16,
-                "fondu": 5,
-                "Meatballs": 15,
-                "Graham crackers": 11
-             }
-          },
-          {
-             "from": "Vlissingen",
-             "to": "Amstelveen",
-             "merchandise": {
-                "French toast": 6,
-                "donuts": 12,
-                "Lamb": 12,
-                "broccoli": 8,
-                "eggs": 18,
-                "franks": 20,
-                "cookies": 13,
-                "haiku roll": 9
-             }
-          },
-          {
-             "from": "Amstelveen",
-             "to": "Terneuzen",
-             "merchandise": {
-                "hot dogs": 17,
-                "Ostrich": 13,
-                "coffee": 3,
-                "enchilada": 6,
-                "kale": 13,
-                "jerky": 11,
-                "bread": 17,
-                "jambalaya": 19,
-                "fajita": 15
-             }
-          }
-       ]
-    },
-    {
-       "id": 5,
-       "route": [
-          {
-             "from": "Almere",
-             "to": "Zierikzee",
-             "merchandise": {
-                "crab": 12,
-                "Quiche": 9,
-                "granola": 20,
-                "Linguine": 20,
-                "French dip": 14,
-                "Graham crackers": 8,
-                "bacon": 19,
-                "jalapeno": 5,
-                "apples": 6
-             }
-          },
-          {
-             "from": "Zierikzee",
-             "to": "Hulst",
-             "merchandise": {
-                "Ziti": 5,
-                "Pancakes": 13,
-                "Cabbage": 8
-             }
-          },
-          {
-             "from": "Hulst",
-             "to": "Almelo",
-             "merchandise": {
-                "edimame": 16,
-                "Milk": 6,
-                "babaganoosh": 5,
-                "bread": 3
-             }
-          },
-          {
-             "from": "Almelo",
-             "to": "Vollenhove",
-             "merchandise": {
-                "Noodles": 3,
-                "eel sushi": 1,
-                "halibut": 15,
-                "bacon": 20,
-                "fish": 18,
-                "Quiche": 6,
-                "carne asada": 4
-             }
-          },
-          {
-             "from": "Vollenhove",
-             "to": "Oostburg",
-             "merchandise": {
-                "ham": 17,
-                "huenos rancheros": 18,
-                "bluefish": 1,
-                "donuts": 13,
-                "Pepperoni": 9
-             }
-          },
-          {
-             "from": "Oostburg",
-             "to": "Ommen",
-             "merchandise": {
-                "chicken": 18,
-                "jalapeno": 10,
-                "broccoli": 9,
-                "lobster": 20,
-                "Guancamole": 7,
-                "asparagus": 3,
-                "hot dogs": 14,
-                "celery": 3,
-                "Linguine": 3
-             }
-          },
-          {
-             "from": "Ommen",
-             "to": "Winschoten",
-             "merchandise": {
-                "Cabbage": 2,
-                "Spaghetti": 7
-             }
-          },
-          {
-             "from": "Winschoten",
-             "to": "Appingedam",
-             "merchandise": {
-                "babaganoosh": 12,
-                "Noodles": 11,
-                "cupcakes": 8,
-                "Zucchini": 6,
-                "Wine": 15,
-                "Tater tots": 10,
-                "hummus": 15,
-                "dates": 2,
-                "hamburger": 5,
-                "ahi tuna": 11
-             }
-          },
-          {
-             "from": "Appingedam",
-             "to": "Arnemuiden",
-             "merchandise": {
-                "Porter": 19,
-                "broccoli": 10,
-                "celery": 11,
-                "Guancamole": 8,
-                "ham": 1,
-                "chicken": 6,
-                "franks": 15,
-                "asparagus": 10,
-                "Waffles": 13,
-                "ketchup": 20
-             }
-          }
-       ]
-    },
-    {
-       "id": 6,
-       "route": [
-          {
-             "from": "Vianen",
-             "to": "Bredevoort",
-             "merchandise": {
-                "Irish stew": 7,
-                "babaganoosh": 4,
-                "hamburger": 17
-             }
-          },
-          {
-             "from": "Bredevoort",
-             "to": "Heusden",
-             "merchandise": {
-                "corn": 17,
-                "eel sushi": 5,
-                "kabobs": 15,
-                "Bruscetta": 11,
-                "babaganoosh": 1,
-                "jalapeno": 18
-             }
-          },
-          {
-             "from": "Heusden",
-             "to": "Genemuiden",
-             "merchandise": {
-                "green beans": 15,
-                "ahi tuna": 16,
-                "ham": 19,
-                "kale": 16
-             }
-          },
-          {
-             "from": "Genemuiden",
-             "to": "Heukelum",
-             "merchandise": {
-                "kabobs": 17,
-                "Avocado roll": 19,
-                "crab": 1,
-                "corn": 12,
-                "alfalfa": 8,
-                "ginger": 15,
-                "kiwi": 19,
-                "Toast": 16,
-                "curry": 13
-             }
-          },
-          {
-             "from": "Heukelum",
-             "to": "Bergen op Zoom",
-             "merchandise": {
-                "grapes": 17,
-                "asian noodles": 17,
-                "Guancamole": 12,
-                "kidney beans": 11
-             }
-          }
-       ]
-    },
-    {
-       "id": 7,
-       "route": [
-          {
-             "from": "Winschoten",
-             "to": "Groenlo",
-             "merchandise": {
-                "Pancakes": 15,
-                "Moose": 10,
-                "Walnuts": 8,
-                "honey": 5,
-                "clams": 17,
-                "asparagus": 16,
-                "ahi tuna": 18,
-                "babaganoosh": 4,
-                "jam": 15,
-                "Tater tots": 11
-             }
-          },
-          {
-             "from": "Groenlo",
-             "to": "Bolsward",
-             "merchandise": {
-                "kidney beans": 19,
-                "bread": 12,
-                "Ostrich": 12,
-                "jambalaya": 13,
-                "asian noodles": 18
-             }
-          },
-          {
-             "from": "Bolsward",
-             "to": "Amersfoort",
-             "merchandise": {
-                "hash browns": 13,
-                "donuts": 10,
-                "cookies": 12,
-                "Pepperoni": 4,
-                "Italian bread": 2
-             }
-          }
-       ]
-    },
-    {
-       "id": 8,
-       "route": [
-          {
-             "from": "Heukelum",
-             "to": "Deventer",
-             "merchandise": {
-                "jerky": 17,
-                "Noodles": 6,
-                "jalapeno": 4,
-                "jambalaya": 10,
-                "ham": 3,
-                "hummus": 11
-             }
-          }
-       ]
-    },
-    {
-       "id": 9,
-       "route": [
-          {
-             "from": "Huissen",
-             "to": "Almelo",
-             "merchandise": {
-                "enchilada": 18,
-                "jambalaya": 6,
-                "asparagus": 10,
-                "hash browns": 5,
-                "ginger": 8,
-                "Meatballs": 5,
-                "Italian bread": 15,
-                "ahi tuna": 12,
-                "ham": 12
-             }
-          },
-          {
-             "from": "Almelo",
-             "to": "Nijmegen",
-             "merchandise": {
-                "Wine": 6,
-                "eel sushi": 16,
-                "Tater tots": 16
-             }
-          },
-          {
-             "from": "Nijmegen",
-             "to": "Zeist",
-             "merchandise": {
-                "grits": 6,
-                "corn": 2,
-                "grapes": 15,
-                "kiwi": 14,
-                "French dip": 7,
-                "Pepperoni": 1,
-                "dips": 10,
-                "Porter": 1
-             }
-          },
-          {
-             "from": "Zeist",
-             "to": "Brielle",
-             "merchandise": {
-                "bluefish": 8,
-                "fondu": 12,
-                "kabobs": 5,
-                "Milkshake": 4,
-                "donuts": 16,
-                "Cabbage": 3,
-                "carne asada": 6,
-                "coffee": 10,
-                "hash browns": 20
-             }
-          },
-          {
-             "from": "Brielle",
-             "to": "Haarlem",
-             "merchandise": {
-                "baked beans": 8,
-                "Moose": 18,
-                "halibut": 3,
-                "bagels": 11,
-                "avacado": 18,
-                "bluefish": 8,
-                "Tater tots": 4
-             }
-          },
-          {
-             "from": "Haarlem",
-             "to": "Lelystad",
-             "merchandise": {
-                "grits": 7,
-                "Meatballs": 4,
-                "Waffles": 6,
-                "buritto": 19,
-                "eggs": 13,
-                "chocolate": 13,
-                "hummus": 17
-             }
-          },
-          {
-             "from": "Lelystad",
-             "to": "Zevenaar",
-             "merchandise": {
-                "kale": 6,
-                "beer": 16,
-                "eggrolls": 5,
-                "Waffles": 5,
-                "Wine": 9,
-                "French toast": 15,
-                "chips": 20,
-                "green beans": 12
-             }
-          },
-          {
-             "from": "Zevenaar",
-             "to": "Rotterdam",
-             "merchandise": {
-                "carne asada": 15,
-                "Lasagna": 9,
-                "Milk": 6
-             }
-          },
-          {
-             "from": "Rotterdam",
-             "to": "Leerdam",
-             "merchandise": {
-                "jambalaya": 5,
-                "hamburger": 2,
-                "eggs": 4,
-                "dips": 10,
-                "bacon": 4,
-                "Lamb": 18,
-                "artichoke": 11,
-                "Toast": 19,
-                "huenos rancheros": 12
-             }
-          }
-       ]
-    }
- ]
+   {
+      "id": 0,
+      "route": [
+         {
+            "from": "Zaandam",
+            "to": "Oudewater",
+            "merchandise": {
+               "jalapeno": 2,
+               "bisque": 12,
+               "kidney beans": 4
+            }
+         },
+         {
+            "from": "Oudewater",
+            "to": "Dordrecht",
+            "merchandise": {
+               "Tater tots": 19,
+               "haiku roll": 10
+            }
+         },
+         {
+            "from": "Dordrecht",
+            "to": "Hindeloopen",
+            "merchandise": {
+               "French toast": 20,
+               "eggrolls": 19
+            }
+         },
+         {
+            "from": "Hindeloopen",
+            "to": "Hoogeveen",
+            "merchandise": {
+               "Lamb": 11,
+               "dumplings": 3
+            }
+         },
+         {
+            "from": "Hoogeveen",
+            "to": "Vlissingen",
+            "merchandise": {
+               "Zucchini": 2,
+               "albacore tuna": 18,
+               "chips": 20,
+               "artichoke": 19,
+               "fish": 19,
+               "cereal": 3,
+               "jerky": 7,
+               "kabobs": 17,
+               "chowder": 4
+            }
+         },
+         {
+            "from": "Vlissingen",
+            "to": "Winterswijk",
+            "merchandise": {
+               "eggrolls": 20,
+               "Spinach": 7,
+               "Wine": 13,
+               "ketchup": 10,
+               "asian noodles": 17
+            }
+         },
+         {
+            "from": "Winterswijk",
+            "to": "Woerden",
+            "merchandise": {
+               "BBQ": 6,
+               "jambalaya": 12
+            }
+         },
+         {
+            "from": "Woerden",
+            "to": "Zevenaar",
+            "merchandise": {
+               "fish": 16,
+               "huenos rancheros": 3,
+               "cookies": 20,
+               "buritto": 8,
+               "Reuben": 5,
+               "chimichanga": 1,
+               "Tater tots": 11,
+               "Spinach": 17,
+               "Zucchini": 17
+            }
+         },
+         {
+            "from": "Zevenaar",
+            "to": "Susteren",
+            "merchandise": {
+               "almond": 5,
+               "Yogurt": 8
+            }
+         },
+         {
+            "from": "Susteren",
+            "to": "Hattem",
+            "merchandise": {
+               "Porter": 18,
+               "Guancamole": 2
+            }
+         }
+      ]
+   },
+   {
+      "id": 1,
+      "route": [
+         {
+            "from": "Willemstad",
+            "to": "Nijmegen",
+            "merchandise": {
+               "kabobs": 4,
+               "coffee": 2
+            }
+         },
+         {
+            "from": "Nijmegen",
+            "to": "Arnemuiden",
+            "merchandise": {
+               "green beans": 13,
+               "Lasagna": 12,
+               "Lamb": 12,
+               "Meatballs": 1,
+               "Pancakes": 18
+            }
+         },
+         {
+            "from": "Arnemuiden",
+            "to": "Stavoren",
+            "merchandise": {
+               "French toast": 2,
+               "ginger": 18,
+               "dates": 3,
+               "goose": 9
+            }
+         },
+         {
+            "from": "Stavoren",
+            "to": "Leerdam",
+            "merchandise": {
+               "carne asada": 17,
+               "almond": 10
+            }
+         },
+         {
+            "from": "Leerdam",
+            "to": "Doesburg",
+            "merchandise": {
+               "Spaghetti": 9,
+               "granola": 12,
+               "kale": 15,
+               "Wine": 13,
+               "gnocchi": 15,
+               "lobster": 17,
+               "chowder": 9,
+               "Noodles": 19
+            }
+         },
+         {
+            "from": "Doesburg",
+            "to": "Groenlo",
+            "merchandise": {
+               "Porter": 2,
+               "duck": 9,
+               "cookies": 12
+            }
+         },
+         {
+            "from": "Groenlo",
+            "to": "Nijkerk",
+            "merchandise": {
+               "dumplings": 8,
+               "Lamb": 3,
+               "Ostrich": 1,
+               "applesauce": 10,
+               "duck": 6,
+               "Meatballs": 17,
+               "Avocado roll": 6,
+               "Reuben": 14
+            }
+         },
+         {
+            "from": "Nijkerk",
+            "to": "Geertruidenberg",
+            "merchandise": {
+               "celery": 10,
+               "Avocado roll": 11,
+               "clams": 11,
+               "Irish stew": 3,
+               "Porter": 8,
+               "Ostrich": 17,
+               "hot dogs": 6,
+               "gumbo": 1
+            }
+         },
+         {
+            "from": "Geertruidenberg",
+            "to": "Zwolle",
+            "merchandise": {
+               "ice cream": 16,
+               "celery": 10,
+               "Yogurt": 5,
+               "chowder": 14,
+               "apples": 20,
+               "Reuben": 10,
+               "Porter": 8,
+               "Meatballs": 17,
+               "carne asada": 3
+            }
+         },
+         {
+            "from": "Zwolle",
+            "to": "Groningen",
+            "merchandise": {
+               "buritto": 1,
+               "Bruscetta": 6,
+               "fajita": 1
+            }
+         }
+      ]
+   },
+   {
+      "id": 2,
+      "route": [
+         {
+            "from": "Helmond",
+            "to": "Goedereede",
+            "merchandise": {
+               "baked beans": 5,
+               "asian noodles": 6,
+               "ketchup": 13,
+               "gumbo": 13,
+               "gnocchi": 18,
+               "carne asada": 1,
+               "fish": 5
+            }
+         },
+         {
+            "from": "Goedereede",
+            "to": "Hilversum",
+            "merchandise": {
+               "lobster": 8,
+               "eggs": 14,
+               "kidney beans": 12,
+               "apples": 16,
+               "halibut": 8,
+               "avacado": 9,
+               "almond": 10
+            }
+         },
+         {
+            "from": "Hilversum",
+            "to": "Monnickendam",
+            "merchandise": {
+               "carne asada": 16,
+               "French dip": 18,
+               "Noodles": 19,
+               "crab": 15,
+               "Irish stew": 3
+            }
+         },
+         {
+            "from": "Monnickendam",
+            "to": "Nijmegen",
+            "merchandise": {
+               "arugala": 6,
+               "green beans": 14,
+               "Waffles": 20,
+               "bisque": 6,
+               "haiku roll": 20,
+               "Noodles": 7,
+               "eggrolls": 16,
+               "Porter": 14,
+               "alfalfa": 13
+            }
+         },
+         {
+            "from": "Nijmegen",
+            "to": "Brielle",
+            "merchandise": {
+               "cupcakes": 12,
+               "curry": 9,
+               "cookies": 5,
+               "cheese": 12,
+               "haiku roll": 5,
+               "franks": 4
+            }
+         },
+         {
+            "from": "Brielle",
+            "to": "Almelo",
+            "merchandise": {
+               "hot dogs": 8,
+               "almond": 9,
+               "cupcakes": 20,
+               "Wine": 1,
+               "Waffles": 17,
+               "English muffins": 14,
+               "jerky": 3,
+               "cookies": 7,
+               "albacore tuna": 9
+            }
+         },
+         {
+            "from": "Almelo",
+            "to": "Hulst",
+            "merchandise": {
+               "black beans": 18,
+               "broccoli": 13,
+               "green beans": 8
+            }
+         },
+         {
+            "from": "Hulst",
+            "to": "Tilburg",
+            "merchandise": {
+               "Graham crackers": 16,
+               "lobster": 5,
+               "dips": 10
+            }
+         },
+         {
+            "from": "Tilburg",
+            "to": "Hattem",
+            "merchandise": {
+               "coffee": 12,
+               "ice cream": 9,
+               "Cabbage": 5,
+               "English muffins": 3,
+               "carrots": 8,
+               "dates": 3,
+               "ginger": 20,
+               "enchilada": 3
+            }
+         },
+         {
+            "from": "Hattem",
+            "to": "Aardenburg",
+            "merchandise": {
+               "falafel": 20,
+               "cupcakes": 10,
+               "eel sushi": 20,
+               "honey": 2,
+               "edimame": 17,
+               "Guancamole": 14
+            }
+         }
+      ]
+   },
+   {
+      "id": 3,
+      "route": [
+         {
+            "from": "Gendt",
+            "to": "Sittard",
+            "merchandise": {
+               "antelope": 18,
+               "Quiche": 9,
+               "Walnuts": 9,
+               "goose": 2,
+               "curry": 13,
+               "chocolate": 6,
+               "Italian bread": 6,
+               "hot dogs": 12,
+               "ice cream": 2,
+               "Venison": 17
+            }
+         },
+         {
+            "from": "Sittard",
+            "to": "Groningen",
+            "merchandise": {
+               "bread": 18,
+               "asparagus": 16,
+               "jalapeno": 7,
+               "granola": 11,
+               "edimame": 5
+            }
+         },
+         {
+            "from": "Groningen",
+            "to": "Zwolle",
+            "merchandise": {
+               "Pepperoni": 10,
+               "eggs": 19,
+               "curry": 10,
+               "cookies": 4,
+               "goose": 6,
+               "bisque": 7,
+               "fondu": 12,
+               "fajita": 5
+            }
+         },
+         {
+            "from": "Zwolle",
+            "to": "Winterswijk",
+            "merchandise": {
+               "hummus": 13,
+               "bacon": 18,
+               "arugala": 17,
+               "fish": 15,
+               "Garlic": 6
+            }
+         },
+         {
+            "from": "Winterswijk",
+            "to": "Vlissingen",
+            "merchandise": {
+               "kabobs": 15,
+               "jambalaya": 6,
+               "edimame": 10,
+               "cupcakes": 1,
+               "chowder": 2,
+               "asparagus": 5,
+               "hash browns": 2
+            }
+         },
+         {
+            "from": "Vlissingen",
+            "to": "Tiel",
+            "merchandise": {
+               "crab": 9,
+               "buritto": 7,
+               "Apple juice": 10,
+               "Pancakes": 6,
+               "grits": 10,
+               "Zucchini": 12,
+               "kale": 6,
+               "barley": 8,
+               "cheese": 1
+            }
+         },
+         {
+            "from": "Tiel",
+            "to": "Enschede",
+            "merchandise": {
+               "chimichanga": 20,
+               "huenos rancheros": 9,
+               "Apple juice": 12,
+               "barley": 6,
+               "babaganoosh": 13,
+               "cake": 16,
+               "Italian bread": 14,
+               "broccoli": 9,
+               "buritto": 5,
+               "BBQ": 15
+            }
+         },
+         {
+            "from": "Enschede",
+            "to": "Delft",
+            "merchandise": {
+               "curry": 15,
+               "Graham crackers": 5,
+               "alfalfa": 11,
+               "apples": 2
+            }
+         },
+         {
+            "from": "Delft",
+            "to": "Roosendaal",
+            "merchandise": {
+               "granola": 13,
+               "kabobs": 9,
+               "artichoke": 13,
+               "chicken": 19,
+               "fajita": 14,
+               "Quesadilla": 15,
+               "avacado": 14,
+               "Toast": 13,
+               "carrots": 20
+            }
+         },
+         {
+            "from": "Roosendaal",
+            "to": "Megen",
+            "merchandise": {
+               "lobster": 14,
+               "halibut": 19,
+               "green beans": 9,
+               "Ziti": 13,
+               "cookies": 3
+            }
+         }
+      ]
+   },
+   {
+      "id": 4,
+      "route": [
+         {
+            "from": "Delfzijl",
+            "to": "Oldenzaal",
+            "merchandise": {
+               "kidney beans": 12,
+               "enchilada": 3,
+               "chowder": 15,
+               "falafel": 15,
+               "crab": 12,
+               "broccoli": 9,
+               "avacado": 8,
+               "Pancakes": 20
+            }
+         },
+         {
+            "from": "Oldenzaal",
+            "to": "Hindeloopen",
+            "merchandise": {
+               "haiku roll": 9,
+               "franks": 7,
+               "cereal": 10,
+               "antelope": 16,
+               "bagels": 2,
+               "kabobs": 12,
+               "ham": 15
+            }
+         },
+         {
+            "from": "Hindeloopen",
+            "to": "Amstelveen",
+            "merchandise": {
+               "babaganoosh": 13,
+               "Toast": 17
+            }
+         },
+         {
+            "from": "Amstelveen",
+            "to": "Hellevoetsluis",
+            "merchandise": {
+               "Waffles": 9,
+               "ham": 6,
+               "Apple juice": 9,
+               "enchilada": 6,
+               "fondu": 13,
+               "gumbo": 18
+            }
+         },
+         {
+            "from": "Hellevoetsluis",
+            "to": "Utrecht",
+            "merchandise": {
+               "curry": 6,
+               "jam": 12,
+               "dates": 5,
+               "Apple juice": 7,
+               "jambalaya": 15
+            }
+         },
+         {
+            "from": "Utrecht",
+            "to": "Hoorn",
+            "merchandise": {
+               "cereal": 2,
+               "fondu": 14,
+               "black beans": 2,
+               "jalapeno": 2,
+               "Indian food": 4,
+               "French dip": 3
+            }
+         },
+         {
+            "from": "Hoorn",
+            "to": "Almelo",
+            "merchandise": {
+               "chips": 2,
+               "Graham crackers": 8,
+               "cheese": 12
+            }
+         },
+         {
+            "from": "Almelo",
+            "to": "Brielle",
+            "merchandise": {
+               "dumplings": 7,
+               "Reuben": 20,
+               "bisque": 18,
+               "cheese": 13,
+               "cake": 4
+            }
+         },
+         {
+            "from": "Brielle",
+            "to": "Harlingen",
+            "merchandise": {
+               "bison": 2,
+               "duck": 5,
+               "English muffins": 10,
+               "hamburger": 4
+            }
+         },
+         {
+            "from": "Harlingen",
+            "to": "Helmond",
+            "merchandise": {
+               "French toast": 4,
+               "chicken": 3,
+               "buritto": 20,
+               "Graham crackers": 15,
+               "kabobs": 3,
+               "dumplings": 11,
+               "haiku roll": 13,
+               "English muffins": 9
+            }
+         }
+      ]
+   },
+   {
+      "id": 5,
+      "route": [
+         {
+            "from": "Zierikzee",
+            "to": "Nijmegen",
+            "merchandise": {
+               "carne asada": 8,
+               "Quiche": 3,
+               "Spaghetti": 16,
+               "Moose": 20,
+               "gnocchi": 3,
+               "Yogurt": 15,
+               "cookies": 11
+            }
+         },
+         {
+            "from": "Nijmegen",
+            "to": "Brielle",
+            "merchandise": {
+               "chocolate": 2,
+               "jalapeno": 12,
+               "dumplings": 9,
+               "fajita": 18,
+               "granola": 8,
+               "eel sushi": 4,
+               "chips": 11,
+               "hash browns": 18,
+               "Lasagna": 15
+            }
+         },
+         {
+            "from": "Brielle",
+            "to": "Almere",
+            "merchandise": {
+               "Reuben": 15,
+               "bison": 16,
+               "Wine": 15,
+               "Cabbage": 16,
+               "enchilada": 18,
+               "chowder": 10
+            }
+         },
+         {
+            "from": "Almere",
+            "to": "Genemuiden",
+            "merchandise": {
+               "beer": 10,
+               "ahi tuna": 16,
+               "falafel": 14,
+               "bread": 7,
+               "eggs": 14,
+               "carrots": 12,
+               "kiwi": 13,
+               "curry": 14
+            }
+         },
+         {
+            "from": "Genemuiden",
+            "to": "Amersfoort",
+            "merchandise": {
+               "cookies": 16,
+               "gnocchi": 14,
+               "bacon": 11,
+               "bison": 7
+            }
+         },
+         {
+            "from": "Amersfoort",
+            "to": "Megen",
+            "merchandise": {
+               "donuts": 14,
+               "Pancakes": 1,
+               "eggrolls": 5,
+               "Yogurt": 17,
+               "clams": 13,
+               "ice cream": 6,
+               "cookies": 11
+            }
+         },
+         {
+            "from": "Megen",
+            "to": "Leerdam",
+            "merchandise": {
+               "chowder": 11,
+               "falafel": 2,
+               "bisque": 16,
+               "almond": 8,
+               "black beans": 12,
+               "chimichanga": 3,
+               "kingfish": 13,
+               "dips": 18,
+               "chicken": 18,
+               "hamburger": 18
+            }
+         },
+         {
+            "from": "Leerdam",
+            "to": "Stavoren",
+            "merchandise": {
+               "ham": 1,
+               "chimichanga": 2,
+               "Moose": 4,
+               "Waffles": 13
+            }
+         },
+         {
+            "from": "Stavoren",
+            "to": "Zevenaar",
+            "merchandise": {
+               "kale": 10,
+               "chimichanga": 15,
+               "lobster": 14
+            }
+         },
+         {
+            "from": "Zevenaar",
+            "to": "Almelo",
+            "merchandise": {
+               "dates": 13,
+               "gnocchi": 5,
+               "haiku roll": 18,
+               "Tater tots": 9,
+               "Lasagna": 6,
+               "dips": 18,
+               "Avocado roll": 15,
+               "Milk": 8
+            }
+         }
+      ]
+   },
+   {
+      "id": 6,
+      "route": [
+         {
+            "from": "Zeist",
+            "to": "Delfzijl",
+            "merchandise": {
+               "dates": 12,
+               "falafel": 1,
+               "Zucchini": 4
+            }
+         },
+         {
+            "from": "Delfzijl",
+            "to": "Monnickendam",
+            "merchandise": {
+               "carne asada": 16,
+               "avacado": 13,
+               "cupcakes": 3
+            }
+         },
+         {
+            "from": "Monnickendam",
+            "to": "Leerdam",
+            "merchandise": {
+               "Venison": 11,
+               "bluefish": 14
+            }
+         },
+         {
+            "from": "Leerdam",
+            "to": "Amsterdam",
+            "merchandise": {
+               "fajita": 4,
+               "carrots": 1,
+               "Linguine": 10,
+               "carne asada": 8,
+               "Porter": 6,
+               "BBQ": 9,
+               "Tater tots": 18,
+               "Moose": 13
+            }
+         },
+         {
+            "from": "Amsterdam",
+            "to": "Sluis",
+            "merchandise": {
+               "donuts": 3,
+               "chimichanga": 16,
+               "Yogurt": 9,
+               "bisque": 18,
+               "carne asada": 5,
+               "curry": 20,
+               "bagels": 19
+            }
+         },
+         {
+            "from": "Sluis",
+            "to": "Genemuiden",
+            "merchandise": {
+               "jam": 14,
+               "ham": 18,
+               "artichoke": 8,
+               "Moose": 13,
+               "jerky": 19,
+               "edimame": 13,
+               "albacore tuna": 7,
+               "Venison": 5
+            }
+         },
+         {
+            "from": "Genemuiden",
+            "to": "Almere",
+            "merchandise": {
+               "jam": 7,
+               "goose": 14,
+               "chimichanga": 7,
+               "corn": 17,
+               "grapes": 5,
+               "dips": 20,
+               "Pancakes": 14,
+               "curry": 15,
+               "Spaghetti": 18,
+               "kabobs": 14
+            }
+         },
+         {
+            "from": "Almere",
+            "to": "Willemstad",
+            "merchandise": {
+               "ketchup": 11,
+               "dips": 1,
+               "Venison": 9,
+               "haiku roll": 10,
+               "coffee": 10,
+               "Quiche": 10,
+               "edimame": 19,
+               "dumplings": 12,
+               "Garlic": 5
+            }
+         },
+         {
+            "from": "Willemstad",
+            "to": "Heukelum",
+            "merchandise": {
+               "buritto": 20,
+               "ahi tuna": 9,
+               "hash browns": 12,
+               "kabobs": 5
+            }
+         },
+         {
+            "from": "Heukelum",
+            "to": "Woudrichem",
+            "merchandise": {
+               "beer": 1,
+               "green beans": 18,
+               "Walnuts": 5,
+               "duck": 14,
+               "corn": 19,
+               "fondu": 11,
+               "Meatballs": 3
+            }
+         }
+      ]
+   },
+   {
+      "id": 7,
+      "route": [
+         {
+            "from": "Oudewater",
+            "to": "Zaandam",
+            "merchandise": {
+               "jam": 7,
+               "Italian bread": 16,
+               "Yogurt": 9
+            }
+         },
+         {
+            "from": "Zaandam",
+            "to": "Den Helder",
+            "merchandise": {
+               "chips": 12,
+               "broccoli": 20,
+               "cake": 18,
+               "grits": 5,
+               "chicken": 6,
+               "kiwi": 20
+            }
+         },
+         {
+            "from": "Den Helder",
+            "to": "Maastricht",
+            "merchandise": {
+               "Porter": 5,
+               "chowder": 16
+            }
+         },
+         {
+            "from": "Maastricht",
+            "to": "Amstelveen",
+            "merchandise": {
+               "jalapeno": 3,
+               "cereal": 19,
+               "Reuben": 10,
+               "Apple juice": 9,
+               "Noodles": 3,
+               "artichoke": 14,
+               "coffee": 10,
+               "Quesadilla": 11
+            }
+         },
+         {
+            "from": "Amstelveen",
+            "to": "Staverden",
+            "merchandise": {
+               "Linguine": 7,
+               "Spaghetti": 13
+            }
+         },
+         {
+            "from": "Staverden",
+            "to": "Blokzijl",
+            "merchandise": {
+               "Lasagna": 5,
+               "bisque": 19,
+               "carrots": 7,
+               "Pizza": 10,
+               "curry": 8
+            }
+         },
+         {
+            "from": "Blokzijl",
+            "to": "Hindeloopen",
+            "merchandise": {
+               "hamburger": 17,
+               "Spinach": 9,
+               "franks": 18,
+               "Ostrich": 7,
+               "Tater tots": 11,
+               "Walnuts": 7,
+               "babaganoosh": 5,
+               "cereal": 13
+            }
+         },
+         {
+            "from": "Hindeloopen",
+            "to": "Goedereede",
+            "merchandise": {
+               "Bruscetta": 7,
+               "applesauce": 16
+            }
+         },
+         {
+            "from": "Goedereede",
+            "to": "Weert",
+            "merchandise": {
+               "jalapeno": 14,
+               "buritto": 5,
+               "crab": 10,
+               "Guancamole": 11
+            }
+         },
+         {
+            "from": "Weert",
+            "to": "Sneek",
+            "merchandise": {
+               "Apple juice": 17,
+               "ahi tuna": 16,
+               "clams": 1,
+               "Milk": 15,
+               "fajita": 5,
+               "lobster": 14,
+               "black beans": 9
+            }
+         }
+      ]
+   },
+   {
+      "id": 8,
+      "route": [
+         {
+            "from": "Woudrichem",
+            "to": "Heukelum",
+            "merchandise": {
+               "franks": 13,
+               "jalapeno": 10,
+               "cereal": 19,
+               "chips": 11,
+               "fajita": 5,
+               "buritto": 13,
+               "crab": 18,
+               "Milk": 14,
+               "albacore tuna": 4
+            }
+         },
+         {
+            "from": "Heukelum",
+            "to": "Coevorden",
+            "merchandise": {
+               "Venison": 20,
+               "Milk": 10,
+               "chocolate": 6,
+               "Irish stew": 16,
+               "almond": 5
+            }
+         },
+         {
+            "from": "Coevorden",
+            "to": "Ommen",
+            "merchandise": {
+               "enchilada": 1,
+               "ketchup": 4,
+               "avacado": 5,
+               "bluefish": 16,
+               "bison": 2,
+               "Ziti": 8,
+               "kale": 2
+            }
+         },
+         {
+            "from": "Ommen",
+            "to": "Gouda",
+            "merchandise": {
+               "Venison": 19,
+               "Walnuts": 4,
+               "arugala": 8,
+               "Reuben": 1,
+               "edimame": 17,
+               "English muffins": 14,
+               "asparagus": 18,
+               "beer": 12
+            }
+         },
+         {
+            "from": "Gouda",
+            "to": "Oostburg",
+            "merchandise": {
+               "goose": 10,
+               "chocolate": 4,
+               "Quesadilla": 5,
+               "ice cream": 14,
+               "fondu": 11,
+               "carrots": 2,
+               "Irish stew": 9,
+               "Indian food": 11
+            }
+         },
+         {
+            "from": "Oostburg",
+            "to": "Tiel",
+            "merchandise": {
+               "Porter": 8,
+               "chicken": 19,
+               "green beans": 18,
+               "Pancakes": 11
+            }
+         },
+         {
+            "from": "Tiel",
+            "to": "Nijkerk",
+            "merchandise": {
+               "hot dogs": 8,
+               "ahi tuna": 6,
+               "donuts": 20,
+               "beer": 6,
+               "grits": 8,
+               "ham": 7,
+               "avacado": 19,
+               "haiku roll": 3,
+               "kingfish": 16,
+               "Toast": 16
+            }
+         },
+         {
+            "from": "Nijkerk",
+            "to": "Woerden",
+            "merchandise": {
+               "Toast": 15,
+               "halibut": 14
+            }
+         },
+         {
+            "from": "Woerden",
+            "to": "Naarden",
+            "merchandise": {
+               "corn": 12,
+               "jerky": 14
+            }
+         },
+         {
+            "from": "Naarden",
+            "to": "Bergen op Zoom",
+            "merchandise": {
+               "dips": 8,
+               "cereal": 4
+            }
+         }
+      ]
+   },
+   {
+      "id": 9,
+      "route": [
+         {
+            "from": "Enschede",
+            "to": "Veere",
+            "merchandise": {
+               "Reuben": 17,
+               "bisque": 18
+            }
+         },
+         {
+            "from": "Veere",
+            "to": "Hengelo",
+            "merchandise": {
+               "albacore tuna": 11,
+               "grits": 12,
+               "French toast": 19,
+               "hash browns": 2,
+               "halibut": 19
+            }
+         },
+         {
+            "from": "Hengelo",
+            "to": "Lelystad",
+            "merchandise": {
+               "cake": 15,
+               "Meatballs": 4,
+               "jerky": 15,
+               "hummus": 8,
+               "avacado": 15,
+               "Garlic": 5,
+               "Toast": 7,
+               "bluefish": 3
+            }
+         },
+         {
+            "from": "Lelystad",
+            "to": "Ommen",
+            "merchandise": {
+               "gumbo": 9,
+               "Meatballs": 6,
+               "Linguine": 9,
+               "Graham crackers": 3,
+               "jerky": 7,
+               "Indian food": 11,
+               "chocolate": 17
+            }
+         },
+         {
+            "from": "Ommen",
+            "to": "Blokzijl",
+            "merchandise": {
+               "goose": 3,
+               "kingfish": 14,
+               "granola": 12,
+               "bagels": 13,
+               "jam": 16,
+               "cupcakes": 8
+            }
+         },
+         {
+            "from": "Blokzijl",
+            "to": "Utrecht",
+            "merchandise": {
+               "green beans": 8,
+               "hummus": 15,
+               "beer": 18,
+               "Toast": 10,
+               "Graham crackers": 4,
+               "haiku roll": 1,
+               "celery": 7,
+               "Linguine": 13,
+               "clams": 5
+            }
+         },
+         {
+            "from": "Utrecht",
+            "to": "Willemstad",
+            "merchandise": {
+               "bluefish": 8,
+               "Quiche": 4,
+               "huenos rancheros": 11,
+               "gnocchi": 18,
+               "dumplings": 14,
+               "green beans": 14
+            }
+         },
+         {
+            "from": "Willemstad",
+            "to": "Heukelum",
+            "merchandise": {
+               "carrots": 16,
+               "haiku roll": 6,
+               "English muffins": 5,
+               "fajita": 7,
+               "carne asada": 2,
+               "Cabbage": 9,
+               "ketchup": 13
+            }
+         },
+         {
+            "from": "Heukelum",
+            "to": "Nijkerk",
+            "merchandise": {
+               "hash browns": 6,
+               "jerky": 6
+            }
+         },
+         {
+            "from": "Nijkerk",
+            "to": "Tiel",
+            "merchandise": {
+               "celery": 5,
+               "chocolate": 14,
+               "lobster": 20
+            }
+         }
+      ]
+   }
+]
